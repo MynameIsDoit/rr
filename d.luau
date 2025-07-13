@@ -24,10 +24,10 @@ Players.LocalPlayer.Idled:Connect(function()
 end)
 
 local seedsToMonitor = {
-    "Carrot", "Strawberry", "Blueberry", "Orange Tulip", "Tomato", "Daffodil",
-    "Watermelon", "Pumpkin", "Apple", "Bamboo", "Coconut", "Cactus", "Dragon Fruit",
-    "Mango", "Grape", "Mushroom", "Pepper", "Cacao", "Beanstalk", "Ember Lily",
-    "Sugar Apple", "Burning Bud"
+    "Apple", "Bamboo", "Beanstalk", "Blueberry", "Burning Bud", "Cacao",
+    "Cactus", "Carrot", "Coconut", "Corn", "Daffodil", "Dragon Fruit", "Ember Lily",
+    "Giant Pinecone", "Grape", "Mango", "Mushroom", "Orange Tulip", "Pepper", "Pumpkin",
+    "Strawberry", "Sugar Apple", "Tomato", "Watermelon"
 }
 
 local gearsToMonitor = {
