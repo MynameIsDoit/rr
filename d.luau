@@ -1,6 +1,6 @@
 repeat wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
 
-local lp, po, ts = game:GetService('Players').LocalPlayer, game.CoreGui.RobloxPromptGui.promptOverlay, game:GetService('TeleportService')
+local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
 
 po.ChildAdded:connect(function(a)
     if a.Name == 'ErrorPrompt' then
@@ -8,6 +8,7 @@ po.ChildAdded:connect(function(a)
         wait(2)
     end
 end)
+
 
 local bb = game:GetService('VirtualUser')
 local Players = game:GetService('Players')
@@ -189,27 +190,19 @@ function MonitorTimers()
     local seedShop = player.PlayerGui:FindFirstChild("Seed_Shop")
     local gearShop = player.PlayerGui:FindFirstChild("Gear_Shop")
 
-    -- Monitor seed timer
     if seedShop then
         local seedTimer = seedShop.Frame.Frame:FindFirstChild("Timer")
         if seedTimer then
-            -- Match "New seeds in" text
-            if string.match(seedTimer.Text, "New seeds in") then
+            if string.match(seedTimer.Text, "New seeds in 4m 55s") then
                 CheckAvailableSeeds()
             end
         end
     end
 
-    -- Monitor gear timer (Exact match for "New gear in 4m 55s")
     if gearShop then
         local gearTimer = gearShop.Frame.Frame:FindFirstChild("Timer")
         if gearTimer then
-            -- Log the current text of the gear timer for debugging
-            print("Gear Timer Text: " .. gearTimer.Text)
-
-            -- Exact match for "New gear in 4m 55s"
-            if gearTimer.Text == "New gear in 4m 55s" then
-                -- If the text matches exactly, check for available gears
+            if string.match(gearTimer.Text, "New gear in 4m 55s") then
                 CheckAvailableGears()
             end
         end
@@ -219,6 +212,6 @@ end
 task.spawn(function()
     while true do
         MonitorTimers()
-        task.wait(0.1)
+        task.wait()
     end
 end)
