@@ -164,12 +164,16 @@ function CheckAvailableGears()
 
     for _, item in ipairs(frames) do
         local gearName = item.Name
+        -- Ensure gear is in the list of items to monitor
         if gearsToMonitorSet[gearName] then
             local mainFrame = item:FindFirstChild("Main_Frame")
-            local costTextLabel = mainFrame and mainFrame:FindFirstChild("Cost_Text")
+            if mainFrame then
+                local costTextLabel = mainFrame:FindFirstChild("Cost_Text")
 
-            if costTextLabel and costTextLabel.Text ~= "NO STOCK" then
-                table.insert(availableGears, gearName)
+                -- Check if costTextLabel exists and if the text is not "NO STOCK"
+                if costTextLabel and costTextLabel.Text ~= "NO STOCK" then
+                    table.insert(availableGears, gearName)
+                end
             end
         end
     end
