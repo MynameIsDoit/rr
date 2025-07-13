@@ -193,7 +193,7 @@ function MonitorTimers()
     if seedShop then
         local seedTimer = seedShop.Frame.Frame:FindFirstChild("Timer")
         if seedTimer then
-            if string.match(seedTimer.Text, "New seeds in 4m 59s") then
+            if string.match(seedTimer.Text, "New seeds in 4m 55s") then
                 CheckAvailableSeeds()
             end
         end
@@ -202,7 +202,7 @@ function MonitorTimers()
     if gearShop then
         local gearTimer = gearShop.Frame.Frame:FindFirstChild("Timer")
         if gearTimer then
-            if string.match(gearTimer.Text, "New gear in 4m 59s") then
+            if string.match(gearTimer.Text, "New gear in 4m 55s") then
                 CheckAvailableGears()
             end
         end
